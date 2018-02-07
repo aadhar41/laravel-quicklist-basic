@@ -24,7 +24,12 @@ use Illuminate\Http\Request;
  * Display All Tasks
  */
 Route::get('/', function () {
-    return view('tasks');
+	$tasks = Task::orderBy('created_at', 'asc')->get();
+
+    return view('tasks', [
+        'tasks' => $tasks
+    ]);
+    
 });
 
 
@@ -57,5 +62,8 @@ Route::post('/task', function (Request $request) {
  * Delete An Existing Task
  */
 Route::delete('/task/{id}', function ($id) {
-    //
+    Task::findOrFail($id)->delete();
+
+    return redirect('/');
 });
+
