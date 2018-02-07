@@ -2,6 +2,8 @@
 <html lang="en">
     <head>
         <title>Laravel Quickstart - Basic</title>
+        <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
 
         <!-- CSS And JavaScript -->
     </head>

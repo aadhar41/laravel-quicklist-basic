@@ -24,7 +24,7 @@
             <!-- Add Task Button -->
             <div class="form-group">
                 <div class="col-sm-offset-3 col-sm-6">
-                    <button type="submit" class="btn btn-default">
+                    <button type="submit" class="btn btn-info">
                         <i class="fa fa-plus"></i> Add Task
                     </button>
                 </div>
@@ -34,13 +34,14 @@
 
     <!-- Current Tasks -->
     @if (count($tasks) > 0)
+    <div class="container-fluid">
         <div class="panel panel-default">
             <div class="panel-heading">
-                Current Tasks
+                <strong>Current Tasks</strong>
             </div>
 
             <div class="panel-body">
-                <table class="table table-striped task-table">
+                <table class="table table-striped task-table table-hover">
 
                     <!-- Table Headings -->
                     <thead>
@@ -57,13 +58,13 @@
                                     <div>{{ $task->name }}</div>
                                 </td>
 
-                                 <!-- Delete Button -->
+
                                 <td>
                                     <form action="/task/{{ $task->id }}" method="POST">
                                         {{ csrf_field() }}
                                         {{ method_field('DELETE') }}
 
-                                        <button>Delete Task</button>
+                                        <button class="btn btn-danger">Delete Task</button>
                                     </form>
                                 </td>
                             </tr>
@@ -72,6 +73,7 @@
                 </table>
             </div>
         </div>
+    </div>
     @endif
 
     <!-- TODO: Current Tasks -->
